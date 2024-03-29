@@ -1,0 +1,12 @@
+[book]
+authors = ["wo4mei3"]
+language = "en"
+multilingual = false
+src = "src"
+title = "The Mic Programming Language"
+
+[output.xgettext]
+pot-file = "messages.pot"
+
+[output.html]
+additional-js = ["theme/custom-highlight.js"]

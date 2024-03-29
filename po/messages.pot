@@ -1,0 +1,525 @@
+
+msgid ""
+msgstr ""
+"Project-Id-Version: The Mic Programming Language\n"
+"POT-Creation-Date: 2024-03-29T09:13:28+09:00\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: en\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: src/SUMMARY.md:1
+msgid "Summary"
+msgstr ""
+
+#: src/SUMMARY.md:2 src/intro.md:1
+msgid "はじめに"
+msgstr ""
+
+#: src/SUMMARY.md:4 src/pointer_type.md:1
+msgid "Micのユニークなポインタ型"
+msgstr ""
+
+#: src/SUMMARY.md:5 src/named_compound_statement.md:1
+msgid "名前付き複合文"
+msgstr ""
+
+#: src/SUMMARY.md:6 src/pointer_type_with_depth.md:1
+msgid "深さ付きポインタ型"
+msgstr ""
+
+#: src/SUMMARY.md:7 src/depth_with_qualifier.md:1
+msgid "深さ修飾子"
+msgstr ""
+
+#: src/SUMMARY.md:9 src/ownership_system.md:1
+msgid "Micの所有権システム"
+msgstr ""
+
+#: src/SUMMARY.md:10 src/ownership.md:1
+msgid "所有権"
+msgstr ""
+
+#: src/SUMMARY.md:12 src/function.md:1
+msgid "関数"
+msgstr ""
+
+#: src/SUMMARY.md:13
+msgid "関数とdepthパラメータ"
+msgstr ""
+
+#: src/SUMMARY.md:14
+msgid "関数とkindパラメータ"
+msgstr ""
+
+#: src/SUMMARY.md:15 src/ownership_with_function.md:1
+msgid "関数と所有権システム"
+msgstr ""
+
+#: src/SUMMARY.md:16 src/malloc_and_free.md:1
+msgid "動的メモリ確保"
+msgstr ""
+
+#: src/SUMMARY.md:18 src/types.md:1
+msgid "データ型"
+msgstr ""
+
+#: src/SUMMARY.md:19 src/literal.md:1
+msgid "基本データ型"
+msgstr ""
+
+#: src/SUMMARY.md:20
+msgid "ポインタ型"
+msgstr ""
+
+#: src/SUMMARY.md:21 src/array.md:1
+msgid "配列型"
+msgstr ""
+
+#: src/SUMMARY.md:22
+msgid "関数ポインタ型"
+msgstr ""
+
+#: src/SUMMARY.md:23 src/struct.md:1
+msgid "構造体"
+msgstr ""
+
+#: src/SUMMARY.md:24 src/union.md:1
+msgid "共用体"
+msgstr ""
+
+#: src/SUMMARY.md:25 src/enum.md:1
+msgid "列挙型"
+msgstr ""
+
+#: src/SUMMARY.md:27 src/misc.md:1
+msgid "unsafe文"
+msgstr ""
+
+#: src/SUMMARY.md:29 src/comment.md:1
+msgid "コメント"
+msgstr ""
+
+#: src/intro.md:3
+msgid "_The Mic Programming Language_にようこそ。Micに関する入門書です。"
+msgstr ""
+
+#: src/intro.md:5
+msgid ""
+"Micは今までのほかのC言語方言とは少し姿が異なったコンパイル時メモリ管理のC言語方言です。 Micの名前の由来は_Mimalloc_ + "
+"_C_。runtimeにmimallocを利用しているのが特徴です。 "
+"mimallocの第一級ヒープという機能は、Micの根底となるメモリ管理システムを実現させることを可能にしています。"
+msgstr ""
+
+#: src/intro.md:9
+msgid ""
+"Micの大きな、そして、固有な特徴は深さ付きポインター型の導入です。ここでいう深さとは、変数が定義されたブロック文、あるいは、複合文のネストの深さを指します。この単純に見える機能がどれほど簡潔にコンパイル時メモリ管理を達成するのかこれから確かめていきましょう。"
+msgstr ""
+
+#: src/pointer_type.md:2
+msgid ""
+"この章では、Micのユニークなポインタ型について見ていきます。 "
+"Micでは名前付き複合文というMic独自の複合文で定義される、深さ識別子と呼ばれる識別子を用いて深さ付きポインタ型を表現します。 それらは、`int "
+"p*`、`int p* p*`といったあまり見慣れない形をしているかもしれません。ただ章を進めていけば、すぐにその有用性に気が付くでしょう。"
+msgstr ""
+
+#: src/named_compound_statement.md:3
+msgid ""
+"まずはじめに深さ付きポインタ型を表示するために、Micでは明示的に名前を付けられたブロック文があります。ここで定義された識別子は、深さ識別子といいます。`using`キーワードを使って、ブロック文に名前を付けることができます。深さ識別子は、通常のその他の変数などの識別子と名前衝突するため、なるべく衝突しないような名前を選びましょう。"
+msgstr ""
+
+#: src/pointer_type_with_depth.md:3
+msgid ""
+"Micの大きな、そして、固有な特徴は深さ付きポインタ型の導入です。ここでいう深さとはポインタが参照している変数が定義された複合文あるいはブロック文の深さです。深さ付きポインタ型の変数には、そのポインタ型の深さが指し示す深さのブロックで定義された変数のアドレスしか格納できません。つまり、ほかの深さのブロックで定義された変数は一切格納できないのです。"
+msgstr ""
+
+#: src/pointer_type_with_depth.md:8
+msgid "// ok!\n"
+msgstr ""
+
+#: src/pointer_type_with_depth.md:9
+msgid ""
+"// error: the type of &x is int p*, which is incompatible with int q*, the "
+"type of p2 \n"
+msgstr ""
+
+#: src/pointer_type_with_depth.md:14
+msgid ""
+"Micではこのようにして、あるポインタ型は必ず、その深さ付きポインタ型内で指定された深さと同じ深さのブロックで定義された変数のみを指し示すポインタ型であるということを保証します。つまりMicの原則として、異なる深さのブロック文で定義された変数を、同一のポインタ変数が複数参照する可能性があるという状況は許さないのです。こうしてMicでは、任意のポインタ変数は、`mi_free`関数によって早期解放されない限り、型が同じであれば寿命も同じであるということを保証します。 "
+"また、任意のブロック文で定義された深さ識別子はブロック文のスコープルールにより決してそれより外側のブロック文から利用できません。そのため、任意のブロック文において利用できる深さ識別子は、自分自身かそれより浅い深さで定義された深さ識別子であることが保証されます。 "
+"つまりMicの型システムは、自分が定義された深さと同じかそれより浅い深さで定義された変数を参照するポインタ型しか表現できないように制限されています。 "
+"これによって、Micではどの深さ付きポインタ型の変数も自分と同じ寿命かそれよりも長い寿命の変数を参照するということが自動的に保障されています。参照先の変数が`mi_free`関数などで解放されない限りは、参照元の変数が生きている間、参照先の変数もずっと生きています。この事実とのちの章で学ぶMicの所有権システムにより、Micは、いわゆるdangling "
+"pointerとして知られるメモリ安全性の問題やポインタの二重開放を静的に防ぐことを可能にします。"
+msgstr ""
+
+#: src/depth_with_qualifier.md:3
+msgid ""
+"これまで、この章では、ある一種類のメモリ管理手法で確保されたメモリアドレスを参照するポインタ型しか見てきませんでした。しかしながら、こんにちの主要なシステムプログラミング言語では、通常3種類のメモリ管理手法を用意しています。 "
+"1つ目はスタック領域を用いてメモリ管理する方法。今まで紹介したのはすべてこの方法でした。 "
+"2つ目はヒープ領域を用いてメモリ管理する方法。Micは標準メモリアロケータにmimallocを用いているため、mimallocの`mi_heap_malloc`、`mi_free`関数を通じて行います。 "
+"3つ目は静的領域を用いてメモリ管理する方法。グローバル領域で定義された変数は、この方式で管理されます。"
+msgstr ""
+
+#: src/depth_with_qualifier.md:8
+msgid "Micでは、この3つそれぞれで確保されたポインタを扱う型はすべて異なります。それぞれどのように型が表現されるのか見ていきましょう。"
+msgstr ""
+
+#: src/depth_with_qualifier.md:10
+msgid "スタック領域のポインタ型"
+msgstr ""
+
+#: src/depth_with_qualifier.md:12
+msgid ""
+"スタック領域で定義された変数のポインタ型は、これまで通り、深さ識別子を用いて次のように表します。 "
+"また、深さ修飾子`auto`を深さ識別子の後ろにおいて、明示的にスタック領域に確保された、自動変数であることも強調することができますが、スタック領域のポインタ型の場合は深さ識別子のみだけでもいいので、通常は`auto`は省かれます。"
+msgstr ""
+
+#: src/depth_with_qualifier.md:23
+msgid "ヒープ領域のポインタ型"
+msgstr ""
+
+#: src/depth_with_qualifier.md:25
+msgid ""
+"ヒープ領域で定義された変数のポインタ型は、深さ識別子に加え、深さ修飾子`dyn`を用いて次のように表します。 "
+"このとき、`dyn`を省いてしまうと、スタック領域のポインタ型になってしまうので、必ず、`dyn`を深さ識別子の後ろに置きます。"
+msgstr ""
+
+#: src/depth_with_qualifier.md:34
+msgid "また、関数外で、ヒープ領域のポインタ型を定義したいときは、深さ識別子は省きます。"
+msgstr ""
+
+#: src/depth_with_qualifier.md:36
+msgid "// Global Scope\n"
+msgstr ""
+
+#: src/depth_with_qualifier.md:40
+msgid "静的領域のポインタ型"
+msgstr ""
+
+#: src/depth_with_qualifier.md:42
+msgid ""
+"静的領域で定義された変数のポインタ型は、これまでと違ってやや特殊です。 "
+"静的領域は、グローバル領域に変数を定義しただけでこのメモリ管理手法になるため、実は、深さ識別子も深さ修飾子も必要ありません。次のようにするだけで静的領域のポインタ型を定義できます。また、関数内で、静的領域の変数を確保する場合は、通常のC言語と同じように、`static`キーワードを使います。"
+msgstr ""
+
+#: src/depth_with_qualifier.md:53
+msgid "つぎに"
+msgstr ""
+
+#: src/depth_with_qualifier.md:55
+msgid ""
+"さて、もともとのC言語には`free`関数もあります。つまり、参照先の変数も早期解放される可能性があるのです。その場合は、どのようにメモリ安全性を達成するのか次の章で見ていきましょう。いわゆる所有権システムの登場です。 "
+"ただ、Micの所有権システムはこれまであった言語のそれとは違い、比較的簡単です。"
+msgstr ""
+
+#: src/ownership_system.md:3
+msgid ""
+"さて、もともとのC言語には`free`関数もあります。つまり、参照先の変数も早期解放される可能性があるのです。Micでは、早期解放を実現するために所有権システムを採用しています。この章では、Micがこのシステムを通じてどのようにメモリ安全性を達成するのか見ていきましょう。"
+msgstr ""
+
+#: src/ownership_system.md:5
+msgid ""
+"そもそも、C言語には可変性の観点から言って、二種類のポインタ型がありました。可変ポインタ型と不変ポインタ型です。Micでは、これらのポインタ型がどのように異なる形で扱われていくのかこれから見ていきましょう。"
+msgstr ""
+
+#: src/ownership.md:3
+msgid ""
+"Micでは、変数があるアドレスの所有権を持っていると、そのアドレスが値を読み書きすることができます。 "
+"どの変数も最初は自分自身の変数のアドレスに対して所有権を持っていますが、それがほかのポインタ変数に代入されると今度はそのポインタ変数が、その変数のアドレスに対して所有権を持ちます。 "
+"アドレスの所有権は、そのアドレスをほかの変数に代入することによって所有権をその変数に移すことができます。 "
+"所有権を持っていた変数は、ほかの変数が自身のアドレスの所有権を持っているので、この代入操作以降、その変数を通じて、そのアドレスが指し示している値の読み書きができなくなります。"
+msgstr ""
+
+#: src/ownership.md:8
+msgid "基本的には、Micの所有権システムは次の三原則からなります。"
+msgstr ""
+
+#: src/ownership.md:10
+msgid "どの変数もその変数自身のアドレスを最初は持っている。"
+msgstr ""
+
+#: src/ownership.md:11
+msgid ""
+"ある変数`x`が持っているアドレスをほかの可変ポインタ型変数`y`に渡すと、変数`y`に変数`x`が持っていたアドレスの所有権が移る。また、変数`y`の寿命が切れたら自動的に変数`x`に所有権が戻る。"
+msgstr ""
+
+#: src/ownership.md:12
+msgid "ある変数が所有権を持っている任意のアドレスは、ある可変ポインタ型変数に代入されない限りにおいて、任意個の不変ポインタ型変数に代入することができる。"
+msgstr ""
+
+#: src/ownership.md:14
+msgid "可変ポインタ型"
+msgstr ""
+
+#: src/ownership.md:15
+msgid "可変ポインタ型は、複数の変数で一つのアドレスの所有権を同時に共有することができません。"
+msgstr ""
+
+#: src/ownership.md:20
+msgid "//error:i is already moved\n"
+msgstr ""
+
+#: src/ownership.md:23
+msgid ""
+"また、ある可変ポインタ型の変数の寿命が切れたら、その変数が所有権を持つ直前までその所有権を持っていた変数に、その変数が持っていた所有権が返されます。"
+msgstr ""
+
+#: src/ownership.md:26
+msgid "//Firstly, the variable x owns its address &x\n"
+msgstr ""
+
+#: src/ownership.md:28
+msgid "//The ownership of &x is moved here, from x to y\n"
+msgstr ""
+
+#: src/ownership.md:29
+msgid "//error: x is moved\n"
+msgstr ""
+
+#: src/ownership.md:31
+msgid "//The ownership of &x returned to x here. Successful!\n"
+msgstr ""
+
+#: src/ownership.md:34
+msgid "不変ポインタ型"
+msgstr ""
+
+#: src/ownership.md:35
+msgid ""
+"不変ポインタ型、いわゆる`const`ポインタ型は、可変ポインタ型とは違い、任意個の変数で一つのアドレスの所有権を同時に共有することができます。ただし、アドレスの中身を変更する権限はありません。"
+msgstr ""
+
+#: src/ownership.md:45
+msgid "ただし、可変ポインタ型と不変ポインタ型の変数の間で、データを共有することはできません。"
+msgstr ""
+
+#: src/ownership.md:50
+msgid "//error happened\n"
+msgstr ""
+
+#: src/function.md:2
+msgid ""
+"この章では、Micに追加された独自の構文についてみていきます。 "
+"まずMicには、前回の章で見てきたように、C++の`template`構文との類推で作られた`lifetime`構文があります。 "
+"この`lifetime`構文では、関数内で関数の呼び出し元で定義された深さ識別子を使えるようにするための`depth`キーワードだけではなく、関数内で使う深さ付きポインタ型の深さ修飾子を抽象するための`kind`キーワードがあります。この章では、これら2種類のキーワードの詳細を深堀りしたうえで、Micの関数がMicの所有権システムとどのように関連するかについて見ていきましょう。"
+msgstr ""
+
+#: src/function_with_depth_parameter.md:1
+msgid "関数と`depth`パラメータ"
+msgstr ""
+
+#: src/function_with_depth_parameter.md:2
+msgid ""
+"Micでは、関数のシグネチャに深さ付きポインタが現れる場合、それらに現れるすべての深さ識別子の順序を浅い方から深い方へ順に`lifetime`構文を明示する必要があります。この際`depth`キーワードを用いて、左から右へとだんだんと深くなっていくように指定します。ここでは、標準Cライブラリのprintf関数を使うために、のちの章で後述するunsafe文を使用してます。"
+msgstr ""
+
+#: src/function_with_depth_parameter.md:5
+msgid "<stdio.h>"
+msgstr ""
+
+#: src/function_with_depth_parameter.md:10
+msgid "\"%s\""
+msgstr ""
+
+#: src/function_with_depth_parameter.md:17
+msgid "\"Hello, \""
+msgstr ""
+
+#: src/function_with_depth_parameter.md:18
+msgid "\"World!\\n\""
+msgstr ""
+
+#: src/function_with_kind_parameter.md:1
+msgid "関数と`kind`パラメータ"
+msgstr ""
+
+#: src/function_with_kind_parameter.md:2
+msgid ""
+"`kind`パラメータは深さ修飾子を抽象化します。`kind`パラメータを使うことによって、ユーザーは特定の深さ修飾子に依存しない深さ付きポインタ型を関数内で使うことができ、これによって、異なる深さ付きポインタ型に対しての処理を共通化することができます。以下の例では、`kind`パラメータを用いて定義された関数を呼び出す際に、どの深さポインタ型の引数を渡す際にはどんな深さ修飾子を`kind`パラメータに渡すべきかを網羅しています。"
+msgstr ""
+
+#: src/function_with_kind_parameter.md:14
+msgid "\"x1\""
+msgstr ""
+
+#: src/function_with_kind_parameter.md:15
+msgid "\"y1\""
+msgstr ""
+
+#: src/function_with_kind_parameter.md:16
+msgid ""
+"//if pointer depth is static and no depth qualifer appear then the kind is "
+"also static\n"
+msgstr ""
+
+#: src/function_with_kind_parameter.md:23
+msgid "\"x2\""
+msgstr ""
+
+#: src/function_with_kind_parameter.md:24
+msgid "\"y2\""
+msgstr ""
+
+#: src/function_with_kind_parameter.md:33
+msgid "'x'"
+msgstr ""
+
+#: src/function_with_kind_parameter.md:34
+#: src/function_with_kind_parameter.md:37
+msgid "'3'"
+msgstr ""
+
+#: src/function_with_kind_parameter.md:35
+#: src/function_with_kind_parameter.md:38 src/array.md:17
+msgid "'\\0'"
+msgstr ""
+
+#: src/function_with_kind_parameter.md:36
+msgid "'y'"
+msgstr ""
+
+#: src/ownership_with_function.md:2
+msgid ""
+"関数に渡された引数が持つ所有権が、その関数を呼び出すと失われる場合はその引数の深さ付きポインタ型を特別なCV修飾子である`drop`修飾子で修飾する必要があります。"
+msgstr ""
+
+#: src/ownership_with_function.md:11
+msgid ""
+"また、パフォーマンスのために`free`関数を渡した後に`null`を代入することを避けたい場合も、`drop`修飾子を使って引数の所有権が失われることを示すことができます。"
+msgstr ""
+
+#: src/malloc_and_free.md:2
+msgid ""
+"さて、Micではヒープ領域のメモリを管理するために、mimallocのライブラリ関数`mi_heap_malloc`,`mi_free`関数を使います。 "
+"これらは、Micの標準ライブラリ`stdlib.h`内でそれぞれ次のように定義されています。"
+msgstr ""
+
+#: src/malloc_and_free.md:11
+msgid ""
+"ここで、`lifetime`, "
+"`depth`といった見慣れない予約語が登場しましたが、これらはC++でいう`template`構文との類推で作られた予約語です。これらは、関数の外側で定義された深さ識別子が関数のシグネチャ内で現れる際に使用されます。この構文の詳細については、次の関数の章で学びます。ここでは、この二つの関数の使い方についてみていきましょう。"
+msgstr ""
+
+#: src/malloc_and_free.md:13
+msgid "`mi_heap_malloc`関数"
+msgstr ""
+
+#: src/malloc_and_free.md:14
+msgid ""
+"Micでは、どんなアドレスもある特定の深さに紐づけられていて、それによってアドレス自体の寿命が決まっています。 "
+"それはヒープ領域から確保されたメモリアドレスについても同様であり、Micでは、複数のヒープ領域が存在し、一つ一つのヒープ領域はそれぞれある一つの深さと紐づけられていて、同じ深さのメモリアドレスはある一つのヒープ領域の下で一元的に管理されます。ヒープ領域とその下で管理されているメモリアドレスの寿命は、ヒープ領域に紐づけられている深さによって決まります。このヒープ領域は、対応している深さのブロック文の処理が終了するのに伴って、領域ごと一気に解放されます。 "
+"つまり、すべての`mi_heap_malloc`関数でメモリ確保されたメモリアドレスに対して後述する`mi_free`関数を呼び出さなくても、`mi_heap_malloc`関数に渡した深さのブロック文が終了したタイミングで自動的にすべてのその深さに紐付けられたメモリは領域ごと解放されます。 "
+"また、Micの`mi_heap_malloc`関数には、関数がどの深さのヒープ領域からメモリを確保するか選択できるようするために。深さ識別子を渡す必要があります。 "
+"ただし、深さ識別子は特別な識別子であり変数ではないので、関数の仮引数や実引数部分にしか現れません。"
+msgstr ""
+
+#: src/malloc_and_free.md:25
+msgid ""
+"//here, all allocation above including even the last one are automatically "
+"freed.\n"
+msgstr ""
+
+#: src/malloc_and_free.md:27
+msgid "`mi_free`関数"
+msgstr ""
+
+#: src/malloc_and_free.md:28
+msgid ""
+"あるアドレスを`mi_free`関数に渡すと、そのアドレスに所有権を持っていた変数はすべて、そのアドレスに対する所有権を失います。一番最後に所有権を持っていた変数が寿命を終えても、その一つ前に持っていた変数にはそのアドレスの所有権は二度と戻りません。 "
+"ある分岐や複合文の中で、ある変数を`mi_free`関数に渡した場合、その分岐や複合文が終わる前までにその変数に`null`を代入しなければいけません。"
+msgstr ""
+
+#: src/types.md:2
+msgid ""
+"Micでは、深さ付きポインタ型の導入に伴い、その他のデータ型にも若干の変更が入ります。Micのデータ型はC言語のそれとどのように違うのかこれから見てましょう。"
+msgstr ""
+
+#: src/literal.md:2
+msgid "Micの基本データ型は、C言語と特に変更はありません。"
+msgstr ""
+
+#: src/pointer.md:1
+msgid "ポインタ"
+msgstr ""
+
+#: src/pointer.md:2
+msgid "Micのポインタ型はすべて深さ付きポインタ型です。C言語のポインタ型構文はMicでは使用できません。"
+msgstr ""
+
+#: src/array.md:2
+msgid "Micの配列型はC言語と見た目は変わりません。"
+msgstr ""
+
+#: src/array.md:9
+msgid ""
+"これらの違いはポインタ型への変換の際に現れます。 "
+"Micでは一般に、深さ`p`のブロック文で定義された配列型の変数は、その配列型の次元によらず、深さ付きポインタ型`int "
+"p*`に一律に変換することができます。 "
+"MicではC言語と同様に、配列型として定義された識別子（上の例では、`table`）は配列の先頭アドレスを指し示しています。これは、配列型の次元がいくつになっても同様で、その先頭アドレスの型は、配列の要素の型への深さとしてその配列自身が宣言されたブロックの深さを取る深さ付きポインタ型（上の例では、`int "
+"p*`）であることが保証されます。 "
+"そのため、もし多次元配列を深さ付きポインタ型に変換した場合は、2つ以上の`[]`で添え字アクセスすることが型システム上許されないので、ユーザーは、任意の要素にアクセスするために、1つの`[]`の中で自分で添え字を計算しなければなりません。 "
+"そのため、Micでは多次元配列を関数に渡すときは、C言語同様、多次元の配列型で定義された引数によって多次元配列を受け取ることができます。ただし、この場合、その引数は、その配列の次元数分、配列逆参照した結果のみしか読み書きすることができないように制限されています。"
+msgstr ""
+
+#: src/array.md:25 src/array.md:35 src/array.md:43
+msgid "\"%d \""
+msgstr ""
+
+#: src/array.md:27 src/array.md:37
+msgid "\"\\n\""
+msgstr ""
+
+#: src/array.md:42
+msgid "\"hello world\""
+msgstr ""
+
+#: src/array.md:53
+msgid "配列型へのポインタ型を表現するときも、普通の深さ付きポインタ型と同じように深さを明示する必要があります。この場合深さは省略できません。"
+msgstr ""
+
+#: src/function_pointer.md:1
+msgid "関数ポインタ"
+msgstr ""
+
+#: src/function_pointer.md:2
+msgid "関数ポインタ型はすべて`static`深さの深さ付きポインタ型ですが、この場合は深さにはなにも指定しません。"
+msgstr ""
+
+#: src/struct.md:2
+msgid ""
+"構造体は関数と同じく、`lifetime`構文が利用できます。関数の時と同じように、構造体内に現れるすべての深さ識別子を`depth`キーワードを用いて、左から右へとだんだんと深くなっていくように指定します。"
+msgstr ""
+
+#: src/union.md:2
+msgid "構造体と同じく、共用体でも`lifetime`構文が利用できます。"
+msgstr ""
+
+#: src/enum.md:2
+msgid "Micの列挙体はC言語と特に変更はありません。"
+msgstr ""
+
+#: src/misc.md:2
+msgid ""
+"Micの`unsafe`文では、C言語の構文のプログラムを直接書くことができ、Micの型システムの制限を超える操作ができます。これによって、生のC言語の関数を呼び出す等の操作が可能になり、Micと生のC言語をつなぐインターフェースとして使うことができます。以下は、Micの標準ライブラリ内での`mi_strlen`の定義です。実は、`mi_strlen`は、`unsafe`文の中で、標準Cライブラリの`strlen`関数を呼び出すラッパー関数なのです。"
+msgstr ""
+
+#: src/misc.md:5
+msgid "//string.h\n"
+msgstr ""
+
+#: src/comment.md:2
+msgid "Micは、C言語同様、2種類のコメントをサポートします。"
+msgstr ""
+
+#: src/comment.md:4
+msgid "/* This is a comment. */"
+msgstr ""
+
+#: src/comment.md:4
+msgid "// This is also a comment.\n"
+msgstr ""
+
