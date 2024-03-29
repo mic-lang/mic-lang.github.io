@@ -1,6 +1,6 @@
 [book]
 authors = ["wo4mei3"]
-language = "en"
+language = "ja"
 multilingual = false
 src = "src"
 title = "The Mic Programming Language"
