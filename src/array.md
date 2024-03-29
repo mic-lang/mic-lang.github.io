@@ -22,30 +22,44 @@ int strlen(char p* s) {
 void arr1(int num[][], int row, int col) {
   for (int i = 0; i < row; i++) {
     for (int j = 0; j < col; j ++) {
-      printf("%d ", num[row][col]);
+      unsafe {
+        printf("%d ", num[row][col]);
+      }
     }
-    printf("\n");
+    unsafe {
+      printf("\n");
+    }
   }
+  return;
 }
 
 lifetime <depth p>
 void arr2(int p* num, int row, int col) {
   for (int i = 0; i < row; i++) {
     for (int j = 0; j < col; j ++) {
-      printf("%d ", num[col*i+j]);
+      unsafe {
+        printf("%d ", num[col*i+j]);
+      }
     }
-    printf("\n");
+    unsafe {
+      printf("\n");
+    }
   }
+  return;
 }
 
 int main () using p {
     char str[] = "hello world";
-    printf("%d ", strlen<p>(str));
+    int len = strlen<p>(str);
+    unsafe {
+      printf("%d ", len);      
+    }
 
     int num[2][3] = {
         {1,2,3},
         {4,5,6}
     };
+    
     arr1(num, 2, 3);
     arr2<p>(num, 2, 3);
 }
