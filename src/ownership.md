@@ -36,9 +36,9 @@ x = 5;//The ownership of &x returned to x here. Successful!
 ```c
 using p {
     int i = 0;
-    int const p* x = &i;
-    int const p* y = &i;
-    int const p* z = &i;
+    int p* const x = &i;
+    int p* const y = &i;
+    int p* const z = &i;
 }
 ```
 
@@ -46,7 +46,7 @@ using p {
 ```c
 using p {
     int i = 0;
-    int const p* x = &i;
+    int p* const x = &i;
     int p* y = &i;//error happened
 }
 ```
