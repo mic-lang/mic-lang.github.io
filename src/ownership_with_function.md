@@ -12,6 +12,6 @@ void p a* move(void p a* drop x) {
 ```c
 lifetime <depth p>
 void delete(void p dyn* drop x) {
-    free(x);
+    mi_free(x);
 }
 ```
