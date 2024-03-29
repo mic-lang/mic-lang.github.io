@@ -28,8 +28,8 @@ int main () using p {
     }
     
 
-    char p dyn* x3 = malloc<p>(p, sizeof char * 3);
-    char p dyn* y3 = malloc<p>(p, sizeof char * 3);
+    char p dyn* x3 = mi_heap_malloc<p>(p, sizeof char * 3);
+    char p dyn* y3 = mi_heap_malloc<p>(p, sizeof char * 3);
     x3[0] = 'x';
     x3[1] = '3';
     x3[2] = '\0';
