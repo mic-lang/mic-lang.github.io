@@ -1,18 +1,26 @@
 # 構造体
-構造体は関数と同じく、`lifetime`構文が利用できます。関数の時と同じように、構造体内に現れるすべての深さ識別子を`depth`キーワードを用いて、左から右へとだんだんと深くなっていくように指定します。
+構造体は関数と同じく、`lifetime`構文が利用できます。
+構造体のフィールドには`mi`修飾子を使えません。原則として外側の変数に使います。
 
 ```c
-lifetime <depth p, kind a>
+lifetime <region p>
 struct key {
-    char p a* name;
+    char mi(p)* name;
     int count;
 };
 
-lifetime <depth p, depth q>
+lifetime <region p, region q>
 struct tnode {
-    char p* word;
+    char mi(p)* word;
     int count;
-    struct tnode q* left;
-    struct tnode q* right;
+    struct tnode mi(q)* left;
+    struct tnode mi(q)* right;
 };
+
+region r_name;
+{
+    region p;
+    key<r_name> mi(p) key1;
+}
 ```
+

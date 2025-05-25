@@ -1,12 +1,14 @@
-# 深さ付きポインタ型
+# mi修飾子
 
-Micの大きな、そして、固有な特徴は深さ付きポインタ型の導入です。ここでいう深さとはポインタが参照している変数が定義された複合文、すなわちブロック文の深さです。深さ付きポインタ型の変数には、そのポインタ型の深さが指し示す深さのブロックで定義された変数のアドレスしか格納できません。つまり、ほかの深さのブロックで定義された変数は一切格納できないのです。
+Micの大きな、そして、固有な特徴は`mi`ポインタ型の導入です。ここでいう深さとはポインタが参照している変数が定義された複合文、すなわちブロック文の深さです。深さ付きポインタ型の変数には、そのポインタ型の深さが指し示す深さのブロックで定義された変数のアドレスしか格納できません。つまり、ほかの深さのブロックで定義された変数は一切格納できないのです。
 ```c
-using p {
-    int x = 0;
-    using q {
-        int p* p1 = &x; // ok!
-        int q* p2 = &x; // error: the type of &x is int p*, which is incompatible with int q*, the type of p2 
+{
+    region p;
+    int x mi(p) = 0;
+    {
+        region q;
+        int mi(p)* ptr1 = &x; // ok!
+        int mi(q)* ptr2 = &x; // error: the type of &x is int p*, which is incompatible with int q*, the type of p2 
     }
 }
 ```

@@ -1,8 +1,9 @@
 # 配列型
-Micの配列型はC言語と見た目は変わりません。
+Micの配列型にも原則として`mi`修飾子で修飾します。
 ```c
-using p {
-    int table[10][20];
+{
+  　region p;
+    int mi(p) table[10][20];
 }
 ```
 
@@ -12,50 +13,49 @@ MicではC言語と同様に、配列型として定義された識別子（上�
 そのため、もし多次元配列を深さ付きポインタ型に変換した場合は、2つ以上の`[]`で添え字アクセスすることが型システム上許されないので、ユーザーは、任意の要素にアクセスするために、1つの`[]`の中で自分で添え字を計算しなければなりません。
 そのため、Micでは多次元配列を関数に渡すときは、C言語同様、多次元の配列型で定義された引数によって多次元配列を受け取ることができます。ただし、この場合、その引数は、その配列の次元数分、配列逆参照した結果のみしか読み書きすることができないように制限されています。
 ```c
-lifetime <depth p>
-int strlen(char p* s) {
-    for (int n = 0; *s != '\0'; s++) 
-        n++;
+#include <stdio.h>
+
+#define mi(i)  __attribute__((__address_space__(i)))
+typedef const __region_t region;
+
+lifetime <region p>
+int strlen_(char mi(p)* s) {
+    int n = 0;
+    for (; *s != '\0'; s++)  {
+        n++;      
+    }
     return n;
 }
 
-void arr1(int num[][], int row, int col) {
+void arr1(int num[2][3], int row, int col) {
   for (int i = 0; i < row; i++) {
-    for (int j = 0; j < col; j ++) {
-      unsafe {
-        printf("%d ", num[row][col]);
-      }
+    for (int j = 0; j < col; j++) {
+      printf("%d ", num[i][j]);
     }
-    unsafe {
       printf("\n");
-    }
   }
   return;
 }
 
-lifetime <depth p>
-void arr2(int p* num, int row, int col) {
+lifetime <region p>
+void arr2(int mi(p)* num, int row, int col) {
   for (int i = 0; i < row; i++) {
-    for (int j = 0; j < col; j ++) {
-      unsafe {
-        printf("%d ", num[col*i+j]);
-      }
+    for (int j = 0; j < col; j++) {
+      printf("%d ", num[col*i+j]);
     }
-    unsafe {
-      printf("\n");
-    }
+    printf("\n");
   }
   return;
 }
 
-int main () using p {
-    char str[] = "hello world";
-    int len = strlen<p>(str);
-    unsafe {
-      printf("%d ", len);      
-    }
-
-    int num[2][3] = {
+int main () {
+    region p;
+    //region p;
+    char mi(p) str[] = "hello world";
+    int len = strlen_<p>(str);
+    printf("%d \n", len);      
+    
+    int mi(p) num[2][3] = {
         {1,2,3},
         {4,5,6}
     };
@@ -66,6 +66,6 @@ int main () using p {
 ```
 配列型へのポインタ型を表現するときも、普通の深さ付きポインタ型と同じように深さを明示する必要があります。この場合深さは省略できません。
 ```c
-int (p* daytab)[13]
-int (p* table)[10][20]
+int (mi(p)* daytab)[13]
+int (mi(p)* table)[10][20]
 ```
