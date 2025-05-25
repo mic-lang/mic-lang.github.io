@@ -46,7 +46,6 @@ void arr2(int mi(p)* num, int row, int col) {
 
 int main () {
     region p;
-    //region p;
     char mi(p) str[] = "hello world";
     int len = strlen_<p>(str);
     printf("%d \n", len);      
