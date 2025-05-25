@@ -12,7 +12,7 @@ lifetime <region p>
 void mi(p)* mic_heap_malloc(mi_heap_t mi(p)* heap, size_t size);
 
 lifetime <region p>
-void mi_free(void mi(p)* ptr);
+void mic_free(void mi(p)* ptr);
 ```
 ここで、`lifetime`といった見慣れない予約語が登場しましたが、これらはC++でいう`template`構文との類推で作られた予約語です。これらは、関数の外側で定義された深さ識別子が関数のシグネチャ内で現れる際に使用されます。この構文の詳細については、次の関数の章で学びます。ここでは、この二つの関数の使い方についてみていきましょう。
 
@@ -55,7 +55,7 @@ Micでは、`mic_heap_new`関数を使ってヒープ領域を作成すること
     int mi(p)* x = mi_heap_malloc<p>(heap,sizeof int);
     int mi(p)* y = mi_heap_malloc<p>(heap,sizeof int);
     int mi(p)* z = mi_heap_malloc<p>(heap,sizeof int);
-    mi_heap_malloc<p>(p,sizeof int);
+    mi_heap_malloc<p>(heap,sizeof int);
     mic_heap_destroy(heap);
     //here, all allocation above including even the last one are automatically freed.
 }　

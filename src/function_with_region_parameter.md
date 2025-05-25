@@ -1,10 +1,10 @@
 # 関数と`region`パラメータ
-Micでは、関数のシグネチャにregion変数が現れる場合、それらに現れるすべてのregion変数を`lifetime`構文を用いて明示する必要があります。この際、region変数の順序は任意に決められます。ここでは、標準Cライブラリのprintf関数を使うために、のちの章で後述するunsafe文を使用してます。
+Micでは、関数のシグネチャにregion変数が現れる場合、現れるすべてのregion変数を`lifetime`構文を用いて明示する必要があります。この際、region変数の順序は任意に決められます。
 
 ```c
 #include <stdio.h>
 lifetime <region p, region q>
-void printer(char p*q* x) {
+void printer(char mi(p)* mi(q)* x) {
     for (int i = 0; i != nullptr; i++) {
         printf("%s", x[i]);
     }
