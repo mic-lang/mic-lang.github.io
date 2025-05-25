@@ -7,7 +7,7 @@
 
 
 - [関数](./function.md)
-    - [関数とdepthパラメータ](./function_with_depth_parameter.md)
+    - [関数とlifetime構文](./function_with_region_parameter.md)
     - [動的メモリ確保](./malloc_and_free.md)
 
 - [データ型](./types.md)
