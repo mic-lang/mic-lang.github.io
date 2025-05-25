@@ -24,8 +24,8 @@ Micでは、`mic_heap_new`関数を使ってヒープ領域を作成すること
     region p;
     mi_heap_t mi(p)* heap = mic_heap_new<p>();
 }　
-
-## `mi_heap_malloc`関数
+```
+## `mic_heap_malloc`関数
 `mic_heap_new`関数で確保したヒープ領域の中に、`mic_heap_malloc`を使ってメモリを確保します。
 ```c
 {
@@ -35,7 +35,7 @@ Micでは、`mic_heap_new`関数を使ってヒープ領域を作成すること
 }　//here, all allocation above including even the last one are automatically freed.
 ```
 ## `mic_free`関数
-`mi_heap_malloc`関数で確保されたメモリを早期解放するには、`mic_free`関数を使う。
+`mic_heap_malloc`関数で確保されたメモリを早期解放するには、`mic_free`関数を使う。
 ```c
 {
     ...
@@ -47,7 +47,7 @@ Micでは、`mic_heap_new`関数を使ってヒープ領域を作成すること
 ```
 ## `mic_heap_destory`関数
 ブロックを抜けるときは、`mic_heap_destory`関数を使って、そのブロックで確保されたヒープ領域を一気に開放します。
-この処理は必ず各ブロックの終わりで一度します。そうしないとメモリリークします。
+この処理は必ず各ブロックの終わりで一度だけ行います。そうしないとメモリリークします。
 ```c
 {
     region p;
