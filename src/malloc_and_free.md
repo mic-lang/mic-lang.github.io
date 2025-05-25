@@ -1,5 +1,5 @@
 # 動的メモリ確保
-さて、Micではヒープ領域のメモリを管理するために、mimallocのライブラリ関数`mic_heap_new`, `mic_heap_malloc`,`mic_free`,`mic_heap_destroy` 関数を使います。
+Micではヒープ領域のメモリを管理するために、mimallocのライブラリ関数のwrapper関数である`mic_heap_new`, `mic_heap_malloc`,`mic_free`,`mic_heap_destroy` 関数を使います。
 これらは、Micの標準ライブラリ`mic.h`内でそれぞれ次のように定義されています。
 ```c
 lifetime <region p>
@@ -14,7 +14,6 @@ void mi(p)* mic_heap_malloc(mi_heap_t mi(p)* heap, size_t size);
 lifetime <region p>
 void mic_free(void mi(p)* ptr);
 ```
-ここで、`lifetime`といった見慣れない予約語が登場しましたが、これらはC++でいう`template`構文との類推で作られた予約語です。これらは、関数の外側で定義された深さ識別子が関数のシグネチャ内で現れる際に使用されます。この構文の詳細については、次の関数の章で学びます。ここでは、この二つの関数の使い方についてみていきましょう。
 
 ## `mic_heap_new`関数
 Micでは、`mic_heap_new`関数を使ってヒープ領域を作成することができます。
@@ -35,7 +34,7 @@ Micでは、`mic_heap_new`関数を使ってヒープ領域を作成すること
 }　//here, all allocation above including even the last one are automatically freed.
 ```
 ## `mic_free`関数
-`mic_heap_malloc`関数で確保されたメモリを早期解放するには、`mic_free`関数を使う。
+`mic_heap_malloc`関数で確保されたメモリを早期解放するには、`mic_free`関数を使います。
 ```c
 {
     ...
