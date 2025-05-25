@@ -4,7 +4,7 @@
 - [Micのユニークなポインタ型](./pointer_type.md)
     - [region変数](./region_variable.md)
     - [mi修飾子](./mi_qualifier.md)
-
+    - [miポインタ](./mi_pointer.md)
 
 - [関数](./function.md)
     - [関数とlifetime構文](./function_with_region_parameter.md)
