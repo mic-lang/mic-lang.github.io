@@ -13,7 +13,7 @@ Micの大きな、そして、固有な特徴は`mi`修飾子の導入です。
     {
         region q;
         int mi(p)* ptr1 = &x; // ok!
-        int mi(q)* ptr2 = &x; // error: the type of &x is int p*, which is incompatible with int q*, the type of p2 
+        int mi(q)* ptr2 = &x; // error: the type of &x is int mi(p)*, which is incompatible with int mi(q)*, the type of ptr2 
     }
 }
 ```
