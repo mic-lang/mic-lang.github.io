@@ -10,3 +10,4 @@ pot-file = "messages.pot"
 
 [output.html]
 additional-js = ["theme/custom-highlight.js"]
+google-analytics = "G-L18H2R258B"
