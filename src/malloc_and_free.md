@@ -51,10 +51,10 @@ Micでは、`mic_heap_new`関数を使ってヒープ領域を作成すること
 {
     region p;
     mi_heap_t mi(p)* heap = mic_heap_new<p>();
-    int mi(p)* x = mi_heap_malloc<p>(heap,sizeof int);
-    int mi(p)* y = mi_heap_malloc<p>(heap,sizeof int);
-    int mi(p)* z = mi_heap_malloc<p>(heap,sizeof int);
-    mi_heap_malloc<p>(heap,sizeof int);
+    int mi(p)* x = mic_heap_malloc<p>(heap,sizeof int);
+    int mi(p)* y = mic_heap_malloc<p>(heap,sizeof int);
+    int mi(p)* z = mic_heap_malloc<p>(heap,sizeof int);
+    mic_heap_malloc<p>(heap,sizeof int);
     mic_heap_destroy(heap);
     //here, all allocation above including even the last one are automatically freed.
 }　
